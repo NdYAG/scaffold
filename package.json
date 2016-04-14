@@ -29,7 +29,7 @@
     "init": "mkdir -p dist/server/views && cp src/server/views/** dist/server/views && ./node_modules/.bin/babel src/server -d dist/server",
     "watch-server": "./node_modules/.bin/cpx --watch \"src/server/views/**\" dist/server/views & ./node_modules/.bin/babel --watch src/server -d dist/server",
     "watch-client": "node dist/server/dev.js",
-    "start": "npm run clean && npm run init && (npm run watch-server & nodemon --ext \".js|.swig\" --watch dist/server dist/server/serve.js & npm run watch-client)"
+    "start": "npm run clean && npm run init && (npm run watch-server & nodemon -e js,swig --watch dist/server dist/server/serve.js & npm run watch-client)"
   },
   "keywords": [],
   "author": "NdYAG <daiximing199078@gmail.com> (http://daix.me)",
