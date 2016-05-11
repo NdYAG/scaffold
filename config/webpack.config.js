@@ -1,9 +1,8 @@
-var path = require('path')
-var DEV_MODE = process.env.NODE_ENV !== 'production'
+var config = require('./index')
 var plugins = []
 // var cssLoaders = 'css-loader!postcss-loader'
 
-if (DEV_MODE) {
+if (config.IS_DEV_MODE) {
   var webpack = require('webpack')
   plugins = [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -13,17 +12,8 @@ if (DEV_MODE) {
 }
 
 module.exports = {
-  DEV_MODE: DEV_MODE,
-  entry: {
-    app: [
-      './src/client/app.js'
-    ]
-  },
-  output: {
-    path: path.join(__dirname, 'dist/client/public/'), // deploy path
-    filename: '[name].js',
-    publicPath: '/public/' // dev path
-  },
+  entry: config.entry,
+  output: config.output,
   plugins: plugins,
   module: {
     loaders: [{
