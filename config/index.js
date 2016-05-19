@@ -15,7 +15,7 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, 'dist/client/public/'), // deploy path
+    path: path.join(__dirname, '../dist/client/public/'), // deploy path
     filename: '[name].js',
     publicPath: '/public/' // dev path
   }
