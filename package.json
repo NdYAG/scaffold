@@ -26,9 +26,9 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build-server": "mkdir -p dist/server/views && cp src/server/views/** dist/server/views && ./node_modules/.bin/babel src/server -d dist/server",
+    "build-server": "mkdir -p dist/server/views && cp src/server/views/** dist/server/views && ./node_modules/.bin/babel src -d dist",
     "build-client": "webpack --config config/webpack.config.js",
-    "watch-server": "./node_modules/.bin/cpx --watch \"src/server/views/**\" dist/server/views & ./node_modules/.bin/babel --watch src/server -d dist/server",
+    "watch-server": "./node_modules/.bin/cpx --watch \"src/server/views/**\" dist/server/views & ./node_modules/.bin/babel --watch src -d dist",
     "watch-client": "node dist/server/dev.js",
     "start": "npm run clean && npm run build-server && (npm run watch-server & nodemon -e js,swig --watch dist/server dist/server/serve.js & npm run watch-client)"
   },
