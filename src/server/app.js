@@ -4,7 +4,7 @@ import swig from 'swig'
 
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import App from '../client/app'
+import App from './template'
 
 var app = express()
 
@@ -15,7 +15,7 @@ app.set('view engine', 'swig')
 app.get('/', (req, res) => {
   res.render('index', {
     title: 'Document',
-    html: renderToString(<App/>)
+    html: renderToString(<App />)
   })
 })
 

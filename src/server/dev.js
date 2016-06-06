@@ -5,23 +5,9 @@ import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 import { DEV_PORT } from '../../config/'
-import config from '../../config/webpack.config'
+import config from '../../config/client.config'
 
 config.entry.app.unshift(`webpack-hot-middleware/client?path=http://localhost:${DEV_PORT}/__webpack_hmr`)
-
-// https://github.com/gaearon/react-transform-hmr/issues/5
-config.module.loaders[0].query.plugins.push([
-  'react-transform', {
-    'transforms': [{
-      'transform': 'react-transform-hmr',
-      'imports': ['react'],
-      'locals': ['module']
-    }, {
-      'transform': 'react-transform-catch-errors',
-      'imports': ['react', 'redbox-react']
-    }]
-  }
-])
 
 var app = express()
 var compiler = webpack(config)

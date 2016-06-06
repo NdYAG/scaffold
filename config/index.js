@@ -8,15 +8,5 @@ module.exports = {
   DEV_MODE: DEV_MODE,
   IS_DEV_MODE: IS_DEV_MODE,
   PORT: PORT,
-  DEV_PORT: DEV_PORT,
-  entry: {
-    app: [
-      './src/client/app.js'
-    ]
-  },
-  output: {
-    path: path.join(__dirname, '../dist/client/public/'), // deploy path
-    filename: '[name].js',
-    publicPath: '/public/' // dev path
-  }
+  DEV_PORT: DEV_PORT
 }

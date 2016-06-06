@@ -1,7 +1,8 @@
 import app from './app'
 import http from 'http'
 
-import { IS_DEV_MODE, PORT, DEV_PORT, output } from '../../config/'
+import { IS_DEV_MODE, PORT, DEV_PORT } from '../../config/'
+import { output } from '../../config/client.config'
 
 if (IS_DEV_MODE) {
   var proxy = require('proxy-middleware')
